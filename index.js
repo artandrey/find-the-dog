@@ -63,7 +63,7 @@ const endBox = document.querySelector('.end');
 
 endBox.querySelector('button').addEventListener('click' , () => {
     startBtn.click();
-    img.style.display = 'none';
+    img.src = '';
     const counter = document.querySelector('.counter'); 
     counter.textContent = '3';
     endBox.style.display = 'none';
