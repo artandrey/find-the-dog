@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #d2e0eb;
+    overflow: hidden;
+    background-image: url(./img/bg-paw-print.png);
+    background-size: cover;
+}
+h2 {
+    font-size: 60px;
+    color: #424242;
+}
+.container {
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.89);
+    height: 100vh;
+    padding: 40px;
+    transition: .3s;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.main-img {
+    height: 300px;
+    margin: 0 auto;
+}
+.btx-box {
+    width: 200px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.btx-box button {
+    padding: 5px;
+    font-size: 40px;
+    background-color: brown;
+    border: none;
+    border-radius: 5px;
+    outline: transparent;
+    cursor: pointer;
+}
+.btx-box button:hover {
+    background-color: rgb(194, 53, 53);
+}
+.btx-box button:active {
+    background-color: rgb(136, 40, 40);
+    transform: scale(1.1);
+}
+.time {
+    width: 400px;
+    height: 10px;
+    display: none;
+    margin: 0 auto;
+}
+.time-range {
+    background-color: #8d1414;
+    height: 100%;
+}
+.btn {
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: rgb(80, 48, 42);
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    outline: transparent;
+    border: none;
+    display: block;
+    margin-top: 10px;
+}
+.btn:active {
+    background-color: rgb(136, 89, 80);
+}
+
+p {
+    font-size: 20px;
+    display: inline-block;
+    margin: 0 auto;
+}
+span {
+    font-size: 30px;
+    color: tomato;
+}
+
+@media screen and (max-width: 720px) {
+    .container {
+        width: 100%;
+        padding: 0;
+        padding-top: 50px;
+    }
+}

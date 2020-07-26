@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find the dog</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./img/icons8-cookie-100.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="start">
+            <button class="btn start-btn">Start</button>
+        </div>
+        <div style="display: none;" class="game">
+            <h2 class="counter">3</h2>
+            <img class="main-img" src="" alt="">
+            <div class="btx-box">
+                <button data-type="dog">🐕</button> <button data-type="cake">🍪</button>
+            </div>
+            <div class="time"><div class="time-range"></div></div>
+        </div>
+        <div style="display: none;" class="end">
+            <p class="fails">Fails: <span></span> </p>
+            <button class="btn relaunch">Again</button>
+        </div>
+        
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
