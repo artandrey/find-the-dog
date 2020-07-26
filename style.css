@@ -69,6 +69,7 @@ h2 {
     outline: transparent;
     border: none;
     display: block;
+    margin: 0 auto;
     margin-top: 10px;
 }
 .btn:active {
