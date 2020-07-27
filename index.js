@@ -185,7 +185,7 @@ let gameIsStarted = false,
     imgsCounter = 0,
     fails = 0,
     timerInterval = null,
-    timeCounter = 70,
+    timeCounter = 90,
     timeCounterDefault = timeCounter
 
 //
