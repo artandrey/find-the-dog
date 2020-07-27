@@ -49,7 +49,9 @@ const imgs = [
     }
 ];
 
+//preload
 
+imgs.forEach(el => document.createElement('img').src = `./img/${el.img}`);
 
 const container = document.querySelector('.container');
 const img = document.querySelector('.main-img');
