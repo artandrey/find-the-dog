@@ -88,6 +88,7 @@ const start = async function() {
 
     ;(function () {
         if (!gameIsOn) {setInterval(() => {
+            let bottomCounter = 0;
             const height = canvas.height;
             witches.map(entity => {
                 if (entity.x < 40) {
@@ -103,11 +104,19 @@ const start = async function() {
                     entity.x -= 0.4 * entity.speed;
                 }
                 if (!entity.up) {
-                    if (entity.y > height/3) {
+                    if (entity.y > height/2.5) {
                             entity.y += 1.8 / entity.speed;
                     }
                     else {
                             entity.y += 1.4 * entity.speed;
+                    }
+                    if (entity.y > height/2.8) {
+                            bottomCounter++;
+                    }
+                    if (bottomCounter > 10) {
+                        if (Math.round(Math.random()) === 1) {
+                            entity.up = true;
+                        }
                     }
                 }
                 else {
