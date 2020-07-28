@@ -113,7 +113,7 @@ const start = async function() {
                     if (entity.y > height/2.8) {
                             bottomCounter++;
                     }
-                    if (bottomCounter > 10) {
+                    if (bottomCounter > 6) {
                         if (Math.round(Math.random()) === 1) {
                             entity.up = true;
                         }
