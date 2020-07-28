@@ -160,8 +160,9 @@ const start = async function() {
                     hp -= 20;
                     if (hp <= 0) {
                         score = 0;
+                        hp = 100;
+                        witches = [];
                     }
-                    hp = 100;
                 }
                 if (witches.length > 15) allowSpawn = false;
                 if (Math.random() > 0.6 && allowSpawn) {
