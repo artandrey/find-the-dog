@@ -173,7 +173,7 @@ const start = async function() {
                         witches = [];
                     }
                 }
-                if (witches.length > 15) allowSpawn = false;
+                if (witches.length > 10) allowSpawn = false;
                 if (Math.random() > 0.6 && allowSpawn) {
                     witches.push(new Witch);
                     if (Math.random() > 0.9) {
