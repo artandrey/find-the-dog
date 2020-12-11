@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wheel-modal">
+            <button class="wheel-modal-close-btn"></button>
+            <div class="wheel-container">
+                <div id="wheel" class="moving-wheel">
+                    <div class="decorative-circles"></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">Сигнализация</span></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">Тонировка</span></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">Зимние шины</span></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">2 ТО в подарок</span></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">Доп оборудование на 10000 руб.</span></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">Антикор + антишум</span></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">Коврики</span></div>
+                    <div class="moving-wheel-text-box"><span class="moving-wheel-text">Полный бак бензин</span></div>
+                    <img src="./img/wheel.png" alt="wheel">
+                </div>
+            </div>
+            <div class="wheel-info-box">
+                <img class="wheel-logo-img" src="./img/logo.png" alt="logo">
+                <h2 class="main-text">Получи свой шанс выиграть приз</h2>
+                <p class="info-text">Введите свой номер телефона, чтобы крутить колесо!</p>
+                <form id="phone-form">
+                    <label class="phone-input-label">
+                        <input id="phone-input" required placeholder="Введите номер телефона" type="tel"/>
+                    </label>
+                    <button class="submit-btn">ПОЛУЧИТЬ ПРИЗ</button>
+                </form>
+                <p class="terms-text">Нажимая на кнопку, вы даете согласие на обработку своих персональных 
+                    данных и соглашаетесь с Политикой конфиденциальности</p>
+                <p class="terms-text">* Срок действия сертификата - 1 месяс с момента заявки<br/>
+                    ** Подарок дарится при условии покупки автомобиля в автосалоне АВС Моторс   </p>
+            </div>
+        </div>
+    </div>
+    <script src="./validator.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
