@@ -29,7 +29,7 @@ form.addEventListener('submit' ,event => {
 
     });
     console.log("SUBMIT");
-    fetch('http://127.0.0.1:8080/wheel', {method: 'POST', body: jsonString}).then(data => data.json())
+    fetch(BACKEND_URL+'/wheel', {method: 'POST', body: jsonString}).then(data => data.json())
     .then(data => {
         if (data.error === 'phone') {
             alert('Этот номер телефона уже использовали');
