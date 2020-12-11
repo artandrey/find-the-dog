@@ -29,6 +29,7 @@ form.addEventListener('submit' ,event => {
 
     });
     console.log("SUBMIT");
+        const data = {}
         data.optionIndex = Math.floor(Math.random()*8);
     
         if (data.error === 'phone') {
