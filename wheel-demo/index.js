@@ -29,11 +29,11 @@ form.addEventListener('submit' ,event => {
 
     });
     console.log("SUBMIT");
-    fetch(BACKEND_URL+'/wheel', {method: 'POST', body: jsonString}).then(data => data.json())
-    .then(data => {
+    
         if (data.error === 'phone') {
             alert('Этот номер телефона уже использовали');
         } 
+        data.optionIndex = Math.floor(Math.random()*8);
         if (data.optionIndex) {
             let angle = 0;
             let speed = 2;
@@ -58,6 +58,6 @@ form.addEventListener('submit' ,event => {
                 wheel.style.transform = `rotate(${angle}deg)`;
             }, 10);
         }
-    });
+    
 
 });
