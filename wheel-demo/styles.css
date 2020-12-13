@@ -4,6 +4,9 @@
     outline: transparent;
     font-family: 'Montserrat', sans-serif;
 }
+.decorative-circles {
+    pointer-events: none;
+}
 .moving-wheel {
     display: inline-block;
     position: relative;
@@ -74,6 +77,8 @@
 }
 .wheel-info-box {
     width: 50%;
+    position: relative;
+    z-index: 1;
 }
 .wheel-logo-img {
     margin-bottom: 25px;
@@ -178,6 +183,36 @@
 
 }
 
+.wheel-modal-close-btn {
+    width: 40px;
+    height: 40px;
+    background-image: url(./img/close.png);
+    background-size: contain;
+    background-color: transparent;
+    border: transparent;
+    outline: transparent;
+    top: 10px;
+    right: 10px;
+}
+.end-modal-wheel-color {
+    background-color: #2b293f;
+    background-image: none;
+}
+.modal-end-container {
+    background-color: #2b293f;
+}
+.wheel-modal-end-h3 {
+    margin-top: 30px;
+    font-size: 50px;
+    color: #ffffff;
+}
+.wheel-modal-end-h4 {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
 @media screen and (max-width:1200px) {
     .wheel-modal {
         flex-direction: column;
@@ -213,5 +248,23 @@
         margin: 0 auto;
         display: block;
         margin-top: 50px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .moving-wheel-text {
+        font-size: 10px;
+        margin-left: 25px;
+    }
+    #phone-input {
+        min-width: 250px;
+        font-size: 17px;
+    }
+    .phone-input-label::before {
+        display: none;
+    }
+    .submit-btn {
+        min-width: 250px;
+        font-size: 15px;
     }
 }
