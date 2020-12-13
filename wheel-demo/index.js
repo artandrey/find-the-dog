@@ -1,5 +1,5 @@
 let angle = 90;
-const BACKEND_URL = 'http://127.0.0.1:8080';
+const BACKEND_URL = 'http://176.37.194.15:8080/';
 [...document.querySelectorAll('.moving-wheel-text-box')].forEach(el => {
     if (angle > 100 && angle < 230) {
         const span = el.querySelector('span')
@@ -38,8 +38,8 @@ form.addEventListener('submit' ,event => {
 
     });
     console.log("SUBMIT");
-    // fetch('http://127.0.0.1:8080/wheel', {method: 'POST', body: jsonString}).then(data => data.json())
-    // .then(data => {
+    fetch(BACKEND_URL+'/wheel', {method: 'POST', body: jsonString}).then(data => data.json())
+    .then(data => {
         if (data.error === 'phone') {
             alert('Этот номер телефона уже использовали');
             return;
@@ -82,7 +82,7 @@ form.addEventListener('submit' ,event => {
                 wheel.style.transform = `rotate(${angle}deg)`;
             }, 10);
         }
-    // });
+    });
 
 });
 
