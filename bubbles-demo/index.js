@@ -41,7 +41,7 @@ const loadImage = function (path) {
 
 class Bubble {
     constructor(object) {
-        this.size = object.size ? (object.size/100) * canvas.width : mathRandom(0.1, 0.15) * canvas.width;
+        this.size = object.size ? (object.size/100) * canvas.width : canvas.width > 1000 ? mathRandom(0.1, 0.15) * canvas.width : mathRandom(0.17, 0.22) * canvas.width;
         this.imageName = object.imageName ? object.imageName : BUBLES_COLORS[Math.floor(Math.random()*BUBLES_COLORS.length)];
         this.x = mathRandom(0 + PADDING_X + this.size, canvas.width - PADDING_X - this.size);
         this.y = 0 - this.size;
