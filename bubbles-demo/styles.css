@@ -5,6 +5,7 @@
 #game-box {
     width: 100%;
     height: 100vh;
+    color: #5f9ea7;
 }
 @font-face {
     font-family: 'Game-font';

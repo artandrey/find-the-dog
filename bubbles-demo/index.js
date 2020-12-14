@@ -95,8 +95,12 @@ class Text {
         console.log(this);
     }
 }
+const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+gradient.addColorStop(0, "#16192e");
+gradient.addColorStop(1, "#5f9ea7")
 const render = function() {
-    ctx.fillStyle = "#222222";
+    ctx.fillStyle = gradient;
+    ctx.textAlign = 'center';
     ctx.fillRect(0,0,canvas.width, canvas.height);
     bubblesArray.forEach(el => {
         ctx.drawImage(images[el.imageName], el.x - el.deformation.x, el.y - el.deformation.y, el.size + el.deformation.x, el.size + el.deformation.y);
@@ -236,7 +240,7 @@ const start = async function() {
         // });
     // }, 1000/FPS);
     setInterval(()=> {
-        if(!Math.floor(mathRandom(0, 3))) {
+        if(!Math.floor(mathRandom(0, 3)) && bubblesArray.length < 6) {
             bubblesArray.push(new Bubble({}));
         }
         if (!!!bubblesArray.length) {

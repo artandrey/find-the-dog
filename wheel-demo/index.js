@@ -53,7 +53,7 @@ form.addEventListener('submit' ,event => {
             const animationInterval = setInterval(()=> {
                 angle+=speed;
                 if (speed < 0.5 && angle <= 360) {
-                    if(angle > optionAngle - 10) {
+                    if(angle > optionAngle - 5) {
                         speed -=0.01;
                     }
                     if(angle > optionAngle) {
