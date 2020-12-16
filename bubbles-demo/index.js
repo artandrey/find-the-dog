@@ -3,6 +3,11 @@ const PADDING_X = 40;
 const BUBLES_COLORS = ['yellow','green','red','blue', 'soap'];
 const canvas = document.createElement('canvas');
 const gameBox = document.getElementById('game-box');
+const menu = document.getElementById('game-menu');
+const form = document.getElementById('option-form');
+const buttonsBox = document.querySelector('.buttons-box');
+const messageText = document.getElementById('message-text');
+const continueBtn = document.querySelector('#continue');
 let discount = 0;
 let isPaused = false;
 gameBox.append(canvas);
@@ -55,6 +60,17 @@ class Bubble {
     }
     destroy = function() {
         discount = (discount*10+1)/10;
+        if (discount >= 50) {
+            // alert('Game ended!!!!');
+            document.getElementById('submit').style.margin = '0 auto';
+            messageText.textContent = `Ви перемогли та набрали максимальну знижку 50% Введіть свою пошту і ми надішлемо вам промокод!`
+            continueBtn.style.display = 'none';
+            stopTheGame();
+        }
+        if (discount !== 0 && discount % 10 === 0) {
+            messageText.textContent = `Ви набрали знижку ${discount}% Бажаєте забрати ії зараз чи продовжити гру?`;
+            stopTheGame();
+        }
         effectsArray.push(new Effect(this.size, this.x, this.y));
         textArray.push(new Text('+0.1%', this.x+(this.size/2), this.y+(this.size/2)));
     }
@@ -144,6 +160,11 @@ function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
     // fill image in dest. rectangle
     ctx.drawImage(img, cx, cy, cw, ch,  x, y, w, h);
 }
+const stopTheGame = function() {
+    isPaused = true;
+    menu.style.display = "block";
+    // canvas.removeEventListener("click");
+}
 // const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
 // gradient.addColorStop(0, "#16192e");
 // gradient.addColorStop(1, "#5f9ea7");
@@ -227,8 +248,12 @@ const render = function() {
 
 
 window.main = function () {
-    window.requestAnimationFrame( main );
-    render();
+
+    if (!isPaused) {
+        
+        window.requestAnimationFrame( main );
+        render();
+    }
     // Код, который цикл должен выполнить
   };
   
@@ -304,14 +329,14 @@ const start = async function() {
             bubblesArray.push(new Bubble({speed:3}));
         }
     }, 500)
-    if (!isPaused) {
-        main(); // Start the cycle
-    }
+    main(); // Start the cycle
+
 }
 
 start();
 
 canvas.addEventListener('click', (e) => {
+    if (isPaused) return;
     const x = e.clientX;
     const y = e.clientY;
     bubblesArray.forEach((entity, i) => {
@@ -326,4 +351,14 @@ canvas.addEventListener('click', (e) => {
             entity.destroy();
         }
     });
+});
+continueBtn.addEventListener('click', () => {
+    menu.style.display = 'none';
+    isPaused = false;
+    main();
+});
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = document.querySelector('.email-input').value;
+    console.log(email);
 });

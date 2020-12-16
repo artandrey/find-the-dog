@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="game-box"></div>
+    <div id="game-box">
+        <div style="display: none;" class="choose-menu" id="game-menu">
+            <h2 class="congrats-text">Вітаємо!</h2>
+            <p class="option-text" id="message-text"></p>
+            <form id="option-form">
+                <input required placeholder="email" class="email-input" type="email">
+                <div class="buttons-box">
+                    <button id="submit" type="submit" class="submit-btn">Завершити</button>
+                    <button id="continue" type="button" class="submit-btn">Продовжити</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script src="./index.js"></script>
 </body>
 </html>

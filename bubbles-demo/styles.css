@@ -1,13 +1,77 @@
 *{
     margin: 0;
     padding: 0;
+    outline: transparent;
+    box-sizing: border-box;
 }
 #game-box {
     width: 100%;
     height: 100vh;
-    color: #5f9ea7;
+    color: #ffffff;
+    font-family: 'Montserrat', 'sans-serrif';
 }
 @font-face {
     font-family: 'Game-font';
     src: url('./fonts/16847.ttf');
+}
+.choose-menu {
+    position: absolute;
+    width: 35%;
+    min-width: 320px;
+    padding: 20px 20px;
+    padding-left: 60px;
+    background-color: #5f9ea7;
+    background-image: url(./img/lux100181000257.jpg);
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0px 0px 38px 0px rgba(255,153,0,1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.choose-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #0000005b;
+    z-index: -1;
+}
+.choose-menu h2 {
+    font-size: 30px;
+    margin-top: 10px;
+}
+.option-text {
+    margin-top: 20px;
+    font-size: 20px;
+}
+#option-form {
+    display: block;
+}
+.email-input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(255, 232, 132);
+    color: #313131;
+    font-size: 20px;
+    text-align: center;
+}
+.submit-btn {
+    width: 45%;
+    background: linear-gradient(0deg, rgb(219, 161, 0) 0%, rgb(247, 195, 26) 100%);
+    border: transparent;
+    border-radius: 20px;
+    color: #141414;
+    font-size: 18px;
+    padding: 10px;
+}
+.buttons-box {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
 }
