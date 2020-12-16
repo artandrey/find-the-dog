@@ -67,8 +67,9 @@
     border: transparent;
     border-radius: 20px;
     color: #141414;
-    font-size: 18px;
+    font-size: 15px;
     padding: 10px;
+    font-weight: bold;
 }
 .buttons-box {
     display: flex;

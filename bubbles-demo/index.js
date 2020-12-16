@@ -8,7 +8,7 @@ const form = document.getElementById('option-form');
 const buttonsBox = document.querySelector('.buttons-box');
 const messageText = document.getElementById('message-text');
 const continueBtn = document.querySelector('#continue');
-let discount = 0;
+let discount = 9.9;
 let isPaused = false;
 gameBox.append(canvas);
 const scaleCanvas = function() {
