@@ -95,12 +95,63 @@ class Text {
         console.log(this);
     }
 }
-const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-gradient.addColorStop(0, "#16192e");
-gradient.addColorStop(1, "#5f9ea7")
+
+
+function drawImageProp(ctx, img, x, y, w, h, offsetX, offsetY) {
+
+    if (arguments.length === 2) {
+        x = y = 0;
+        w = ctx.canvas.width;
+        h = ctx.canvas.height;
+    }
+
+    // default offset is center
+    offsetX = typeof offsetX === "number" ? offsetX : 0.5;
+    offsetY = typeof offsetY === "number" ? offsetY : 0.5;
+
+    // keep bounds [0.0, 1.0]
+    if (offsetX < 0) offsetX = 0;
+    if (offsetY < 0) offsetY = 0;
+    if (offsetX > 1) offsetX = 1;
+    if (offsetY > 1) offsetY = 1;
+
+    var iw = img.width,
+        ih = img.height,
+        r = Math.min(w / iw, h / ih),
+        nw = iw * r,   // new prop. width
+        nh = ih * r,   // new prop. height
+        cx, cy, cw, ch, ar = 1;
+
+    // decide which gap to fill    
+    if (nw < w) ar = w / nw;                             
+    if (Math.abs(ar - 1) < 1e-14 && nh < h) ar = h / nh;  // updated
+    nw *= ar;
+    nh *= ar;
+
+    // calc source rectangle
+    cw = iw / (nw / w);
+    ch = ih / (nh / h);
+
+    cx = (iw - cw) * offsetX;
+    cy = (ih - ch) * offsetY;
+
+    // make sure source rectangle is valid
+    if (cx < 0) cx = 0;
+    if (cy < 0) cy = 0;
+    if (cw > iw) cw = iw;
+    if (ch > ih) ch = ih;
+
+    // fill image in dest. rectangle
+    ctx.drawImage(img, cx, cy, cw, ch,  x, y, w, h);
+}
+// const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+// gradient.addColorStop(0, "#16192e");
+// gradient.addColorStop(1, "#5f9ea7");
 const render = function() {
-    ctx.fillStyle = gradient;
+    // ctx.fillStyle = gradient;
     ctx.textAlign = 'center';
+    drawImageProp(ctx, images.bg, 0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
     ctx.fillRect(0,0,canvas.width, canvas.height);
     bubblesArray.forEach(el => {
         ctx.drawImage(images[el.imageName], el.x - el.deformation.x, el.y - el.deformation.y, el.size + el.deformation.x, el.size + el.deformation.y);
@@ -163,11 +214,13 @@ const render = function() {
             textArray.splice(i, 1);
         }
     });
-    ctx.fillStyle = "#222222";
-    ctx.fillRect(0,0,canvas.width, 50);
+    drawImageProp(ctx, images.top, 0, 0, canvas.width, 70);
+    ctx.fillStyle = "rgb(0,0,0,0.3)";
+    ctx.fillRect(0,0,canvas.width, 70);
+    ctx.font = '40px Game-font';
     ctx.fillStyle = "#ffffff";
-    ctx.font = 'bold 40px Game-font';
-    ctx.fillText('Score ' + discount + '%', canvas.width/2,40);
+    ctx.fillText('Знижка ' + discount + '%', canvas.width/2,40);
+    ctx.strokeText('Знижка ' + discount + '%', canvas.width/2,40);
 }
 
 
@@ -187,7 +240,7 @@ window.main = function () {
 const start = async function() {
     ctx.fillStyle = "#222222";
     ctx.fillRect(0,0,canvas.width, canvas.height);
-    ctx.font = 'bold 40px Game-font';
+    ctx.font = '40px Game-font';
     ctx.fillStyle = "#ffffff";
     ctx.textAlign = 'center';
     ctx.fillText('Loading...', canvas.width/2, canvas.height/2);
@@ -197,7 +250,9 @@ const start = async function() {
         const img = await loadImage(`./img/${color}_snow.png`);
         images[color] = img;
     }
-    images.snow_particle = await loadImage(`./img/snow_particle.png`)
+    images.bg = await loadImage('./img/'+(Math.floor(Math.random()*3)+1)+'.jpg');
+    images.snow_particle = await loadImage(`./img/snow_particle.png`);
+    images.top = await loadImage('./img/top-img.jpg');
     console.log(images);
     bubblesArray.push(new Bubble({size: 10, imageName: 'yellow'}));
     // setInterval(()=> {
